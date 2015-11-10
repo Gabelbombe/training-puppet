@@ -21,6 +21,7 @@ class review(
     ensure      => present,
     shell       => '/bin/bash',
     managehome  => true,
+    require     => File['/etc/shells']
   }
 }
 
