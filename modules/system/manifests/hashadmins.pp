@@ -1,22 +1,17 @@
-class system::dbadmins {
+class system::hashadmins {
   require mysql::server
-
-  $users = ['zack@localhost', 'monica@localhost', 'luke@localhost']
-
-  Mysql_user { 
+  
+  $user_hash = {
+    'zack@localhost'    => {},
+    'monica@localhost'  => {}, 
+    'luke@localhost'    => {}, 
+    'ralph@localhost'   => { ensure => absent },
+    'brad@localhost'    => { password_hash => mysql_password('puppet') }
+  }
+  Mysql_user {
     ensure => present,
     password_hash => mysql_password('puppetlabs'),
-    
-  }
 
-  mysql_user { $users:
   }
-
-  mysql_user { 'ralph@localhost':
-    ensure        => absent,
-  }
-
-  mysql_user { 'brad@localhost':
-    password_hash => mysql_password('puppet'),
-  }
+  create_resources('mysql_user', $user_hash)
 }
