@@ -1,7 +1,7 @@
 class system::hashadmins {
   require mysql::server
   
-  $user_hash = {
+  $users = {
     'zack@localhost'    => {},
     'monica@localhost'  => {}, 
     'luke@localhost'    => {}, 
@@ -13,5 +13,5 @@ class system::hashadmins {
     password_hash => mysql_password('puppetlabs'),
 
   }
-  create_resources('mysql_user', $user_hash)
+  create_resources('mysql_user', $users)
 }

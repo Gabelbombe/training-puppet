@@ -15,8 +15,8 @@ class system::hosts {
       host_aliases => ['training', 'localhost', 'localhost.localdomain', 'localhost4'],
       ip           => '127.0.0.1',
     },
-    'troll.puppetlabs.vm'   => {
-      host_aliases => ['troll'],
+    $::fqdn   => {
+      host_aliases => [$::hostname],
       ip           => $::ipaddress,       ## '10.0.2.15',
     },
   }
