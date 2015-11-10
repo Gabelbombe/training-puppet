@@ -2,6 +2,7 @@ HOSTNAME=`uname -n`
 KERNEL=`uname -r`
 CPU=`uname -p`
 ARCH=`uname -m`
+TIME=`date +"%Y-%m-%d @ %H:%M:%S"`
 # The different colours as variables
 W="\033[01;37m"
 B="\033[01;34m"
@@ -12,4 +13,5 @@ echo  "       $W Welcome $B $USER $W to $B $HOSTNAME  "
 echo  "       $R ARCH   $W= $ARCH                     " 
 echo  "       $R KERNEL $W= $KERNEL                   " 
 echo  "       $R CPU    $W= $CPU                      " 
+echo  "       $B TIME   $W= $TIME                     "
 echo  "$R#==================================================#"
