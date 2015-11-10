@@ -2,7 +2,6 @@ class system::hosts {
   resources { 'host':
     purge => true,                       ## this is a horrible fucking idea....
   }
-
   $hosts = {
     'localhost'             => {
       host_aliases => ['localhost.localdomain', 'localhost6', 'localhost6.localdomain6'],
