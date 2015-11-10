@@ -4,10 +4,10 @@ class ordering {
 
   class {'ordering::updatedb': stage => 'post-run', }
 
-  include ordering::epel
-  include ordering::mysql
-
   notify { 'Should come after mysql':
     require => Class['ordering::mysql']
   }
+
+  include ordering::epel
+  include ordering::mysql
 }

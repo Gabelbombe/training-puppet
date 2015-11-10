@@ -1,6 +1,12 @@
 class ordering::epel {
   yumrepo { 'epel':
-    enabled => 1,
+    enabled => present,
   }
-  Yumrepo['epel'] -> Package <| |>
+
+  Package <| |> {
+    require => Yumrepo['epel']
+  }
+
+  #works the same, diff syntax...
+  #Yumrepo['epel'] -> Package <| |>
 }
