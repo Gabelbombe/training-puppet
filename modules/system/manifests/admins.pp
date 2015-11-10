@@ -5,15 +5,10 @@ class system::admins {
     'joe'   => { tag => [ 'oracle'    ] },
     'admin' => {},
   }
-
-  Users {
-    ensure           => present,
-    home             => '/home/jargyle',
-    password         => '!!',
-    password_max_age => '99999',
-    password_min_age => '0',
-    shell            => '/bin/bash',
-    uid              => '501',
+  User {
+    ensure      => present,
+    managehome  => true,
+    shell       => '/bin/bash',
   }
-  create_resources('users', $users)
+  create_resources('user', $users)
 }
