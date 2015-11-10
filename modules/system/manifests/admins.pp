@@ -1,14 +1,13 @@
 class system::admins {
-  $users = {
-    'bob'   => { tag => [ 'wordpress' ] },
-    'sally' => { tag => [ 'wordpress' ] },
-    'joe'   => { tag => [ 'oracle'    ] },
-    'admin' => {},
+  User { ensure => present, }
+
+  @user { ['bob', 'sally']:
+    tag => 'wordpress',
   }
-  User {
-    ensure      => present,
-    managehome  => true,
-    shell       => '/bin/bash',
+
+  @user { 'joe':
+    tag => 'oracle',
   }
-  create_resources('user', $users)
+
+  @user { 'admin': }
 }
