@@ -1,4 +1,8 @@
-class hosts {
+class system::hosts {
+  resources { 'host':
+    purge => true,                       ## this is a horrible fucking idea....
+  }
+
   $hosts = {
     'localhost'             => {
       host_aliases => ['localhost.localdomain', 'localhost6', 'localhost6.localdomain6'],
@@ -14,7 +18,7 @@ class hosts {
     },
     'troll.puppetlabs.vm'   => {
       host_aliases => ['troll'],
-      ip           => '10.0.2.15',
+      ip           => $::ipaddress,       ## '10.0.2.15',
     },
   }
   Hosts {
