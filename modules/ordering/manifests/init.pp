@@ -1,13 +1,13 @@
 class ordering {
-  stage { 'post-run':
-    require => Stage['main']
-  }
+  stage { 'post-run': }
+  Stage['main'] -> Stage['post-run']
+
+  class {'ordering::updatedb': stage => 'post-run', }
+
   include ordering::epel
   include ordering::mysql
-  notify { 'This should come after the entire MySQL class is enforced':
-    require => Class['ordering::mysql'],
-  }
-  class { 'ordering::updatedb':
-    stage => 'post-run',
+
+  notify { 'Should come after mysql':
+    require => Class['ordering::mysql']
   }
 }

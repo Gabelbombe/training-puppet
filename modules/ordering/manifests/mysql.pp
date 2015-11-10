@@ -14,7 +14,7 @@ class ordering::mysql {
     perl_enable   => true,
   }
 
-  #contain mysql::bindings
+  contain mysql::bindings
   # If you didn't want to use anchors, you could also call the contain()
   # function like this. Like the include() function, it is idempotent, so
   # the fact that we have declared it above is not a problem. That *would* be
