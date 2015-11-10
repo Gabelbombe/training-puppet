@@ -32,7 +32,7 @@ class review (
 
   file_line { '/etc/profile':
     path  => '/etc/profile',
-    line  => '/usr/local/bin/dynmotd >| /etc/motd',
+    line  => 'sh /usr/local/bin/dynmotd >| /etc/motd',
   }
 
   user { $user:
