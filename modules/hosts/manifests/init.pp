@@ -1,5 +1,4 @@
 class hosts {
-
   @@host { $::fqdn:
     host_aliases    => [ $::hostname ],
     ip              => $::ipaddress,
@@ -11,6 +10,8 @@ class hosts {
     target => '/etc/hosts',
   }
 
+  ## dont purge...
+  resources { 'host': purge => false }
 }
 
 
