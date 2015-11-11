@@ -1,7 +1,7 @@
 class files {
   $motd = '/etc/motd'
-
   file { '/etc/cron.allow': ensure  => file }
+  file { '/etc/cron.deny':  ensure  => file }
 
   file_line { 'prevent cron jobs':
     path => '/etc/cron.deny',
@@ -25,6 +25,12 @@ class files {
     content => template('files/header.erb'),
     target => $motd,
     order => 1,
+  }
+
+  concat::fragment { 'motd center':
+    content => template('files/center.erb'),
+    target => $motd,
+    order => 3,
   }
 
   concat::fragment { 'motd footer':
