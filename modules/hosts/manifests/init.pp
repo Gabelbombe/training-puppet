@@ -6,12 +6,9 @@ class hosts {
   }
 
   Host <<| tag == 'classroom' |>> {
-    ensure => present,
-    target => '/etc/hosts',
+    ensure          => present,
+    target          => '/etc/hosts',
   }
 
-  ## dont purge...
-  resources { 'host': purge => false }
+  resources { 'host': purge => false }  ## dont purge...
 }
-
-
