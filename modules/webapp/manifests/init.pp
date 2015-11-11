@@ -8,8 +8,9 @@ class webapp(
 
   class { 'mysql::bindings': php_enable => true }
   class { 'mysql::server':
-    remove_default_accounts => true,
     root_password           => $mysqlpass,
+    remove_default_accounts => true,
+    restart                 => true,
   }
 
   apache::vhost { $::fqdn:
