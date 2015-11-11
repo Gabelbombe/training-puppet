@@ -1,9 +1,16 @@
-class webapp($docroot = $webapp::params::docroot) inherits webapp::params {
+class webapp(
+  $docroot    = $webapp::params::docroot,
+  $mysqlpass  = 'oc0Ierie eip0Fuc1 Loh2ohse Thoo4lie po5maCho Kahpho4r Veeth5Nu AeNg0Quo',
+) inherits webapp::params {
+
   include apache
   include apache::mod::php
-  include mysql::server
 
   class { 'mysql::bindings': php_enable => true }
+  class { 'mysql::server':
+    remove_default_accounts => true,
+    root_password           => $mysqlpass,
+  }
 
   apache::vhost { $::fqdn:
     vhost_name    => $::fqdn,

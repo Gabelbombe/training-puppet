@@ -1,5 +1,6 @@
-class webapp::wordpress inherits webapp {
-  include webapp
+class webapp::wordpress(
+  # if it inhereits vars
+) inherits webapp {
 
-  class { '::wordpress': install_dir => $webapp::docroot }
+  include webapp  class { '::wordpress': install_dir => $webapp::docroot }
 }
