@@ -1,3 +1,4 @@
 ---
 message: 'Using Troll Environment'
 
+webapp::docroot: '/var/www/html'
