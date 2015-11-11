@@ -9,8 +9,8 @@ class webapp(
   class { 'mysql::bindings': php_enable => true }
   class { 'mysql::server':
     root_password           => $mysqlpass,
-    remove_default_accounts => true,
     create_root_my_cnf      => false,
+    remove_default_accounts => true,
     restart                 => true,
   }
 
