@@ -1,6 +1,6 @@
-class webapp::wordpress(
-  # if it inhereits vars
-) inherits webapp {
-
-  include webapp  class { '::wordpress': install_dir => hiera('webapp::docroot') }
+class role::wordpress {
+  include profile::wordpress
+  include profile::security::base
+  include profile::security::web_app
+  include profile::base::linux
 }

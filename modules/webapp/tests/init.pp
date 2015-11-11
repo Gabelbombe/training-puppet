@@ -1,1 +1,1 @@
-include webapp::wordpress
+include profile::webapp::wordpress
