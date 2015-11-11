@@ -30,3 +30,6 @@ node default {
   notify { "Hello ${fqdn}": }
   include hosts
 }
+
+# if included by yourself....
+# node 'troll.puppetlabs.vm' { include hosts }
