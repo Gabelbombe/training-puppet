@@ -8,14 +8,14 @@ class webapp (
 
   class { 'mysql::bindings': php_enable => true }
   class { 'mysql::server':
-    root_password           => $mysqlpass,
-    restart                 => true,
+    root_password => $mysqlpass,
+    restart       => true,
   }
 
   apache::vhost { $::fqdn:
-    vhost_name    => $::fqdn,
-    docroot       => $docroot,
-    priority      => 10,
-    port          => 80,
+    vhost_name => $::fqdn,
+    docroot    => $docroot,
+    priority   => 10,
+    port       => 80,
   }
 }
