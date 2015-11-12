@@ -5,7 +5,7 @@ class webapp::params {
     'Debian': { $docroot = '/var/www'      }
 
     default: {
-      fail("Module ${module_name} is not supported on ${::osfamily}")
+      fail("Module is not supported on ${::osfamily}")
     }
 
   }

@@ -1,4 +1,23 @@
 ---
 message: 'Using Troll Environment'
 
-webapp::docroot: '/var/www/html'
+ngnix::hostname: 'localhost'
+ngnix::docroot:  '/var/www/html'
+
+mysql::user: 'root'
+mysql::pass: 'oc0Ierie eip0Fuc1 Loh2ohse Thoo4lie po5maCho Kahpho4r Veeth5Nu AeNg0Quo'
+mysql::name: 'drupal'
+
+nginx::nginx_vhosts:
+  '127.0.0.1':
+    www_root: '/var/www/html'
+nginx::nginx_locations:
+  'static':
+    location: '~ "^/static/[0-9a-fA-F]{8}\/(.*)$"'
+    vhost: localhost
+    www_root: /var/www/html
+  'userContent':
+    location: /userContent
+    vhost: localhost
+    www_root: /var/www/html
+
