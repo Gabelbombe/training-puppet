@@ -1,10 +1,12 @@
 require 'spec_helper'
-describe('apache', :type => class) do
+describe('apache', :type => :class) do
     let(:node) { 'troll.puppetlabs.vm' } ## web001
 
     describe 'when applied to redhat with nothing special' do
-        let (:facts) { { } }
-            :osfamily => 'Redhat', :ipaddress => '127.0.0.1'
+        let (:facts) { {
+            :osfamily   => 'Redhat',
+            :ipaddress  => '127.0.0.1'
+        } }
 
         it {
             should contain_package('apache').with({
@@ -23,6 +25,5 @@ describe('apache', :type => class) do
                 'name'      => 'httpd',
             })
         }
-        end
     end
 end
