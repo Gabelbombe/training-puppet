@@ -1,7 +1,7 @@
 ---
 message: 'Using Troll Environment'
 
-ngnix::hostname: 'localhost'
+ngnix::hostname: 'troll.puppetlabs.vm'
 ngnix::docroot:  '/var/www/html'
 
 mysql::user: 'root'
@@ -14,10 +14,10 @@ nginx::nginx_vhosts:
 nginx::nginx_locations:
   'static':
     location: '~ "^/static/[0-9a-fA-F]{8}\/(.*)$"'
-    vhost: localhost
+    vhost: trollolol
     www_root: /var/www/html
   'userContent':
     location: /userContent
-    vhost: localhost
+    vhost: trollolol
     www_root: /var/www/html
 
